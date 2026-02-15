@@ -1,84 +1,53 @@
-import React from 'react'
-import html from "../../public/html.png"
-import css from "../../public/css.jpg"
-import javascript from "../../public/javascript.png"
-import java from "../../public/java.png"
-import oracle from "../../public/oracle.png"
-import spring from "../../public/spring.png"
-import springBoot from "../../public/springBoot.jpg"
-
+import html from "../assets/html.png";
+import css from "../assets/css.jpg";
+import javascript from "../assets/javascript.png";
+import react from "../assets/reactjs.png";
+import git from "../assets/git.png";
+import node from "../assets/node.png";
 
 function Experiance() {
+  const skills = [
+    { id: 1, logo: html, name: "HTML" },
+    { id: 2, logo: css, name: "CSS" },
+    { id: 3, logo: javascript, name: "JavaScript" },
+    { id: 4, logo: react, name: "ReactJS" },
+    { id: 5, logo: git, name: "Git" },
+    { id: 6, logo: node, name: "Node" },
+  ];
 
-    const cardItem = [
-        {
-          id: 1,
-          logo: html,
-          name: "HTML",
-        },
-        {
-          id: 2,
-          logo: css,
-          name: "CSS",
-        },
-        {
-          id: 3,
-          logo: javascript,
-          name: "JAVASCRIPT",
-        },
-        {
-          id: 4,
-          logo: java,
-          name: "JAVA",
-        },
-        {
-          id: 5,
-          logo: spring,
-          name: "SPRING",
-        },
-        {
-          id: 6,
-          logo: springBoot,
-          name: "SPRING BOOT",
-        },
-        {
-            id: 7,
-            logo: oracle,
-            name: "ORACLE",
-          },
-
-      ];
   return (
-    <div name="Experiances" className='max-w-screen-2xl container mx-auto px-4 md:mx-20 my-16'>
-      
-    <div className=''>
-        <h1 className='text-3xl font-bold mb-5'>Experiance</h1>
-        <p className="  ">
-          I've more than 2 years of experiance in below technologies.
-        </p>
-        <div className='grid grid-cols-2 md:grid-cols-5 gap-7 my-3'>
-        {cardItem.map(({ id, logo, name }) => (
+    <div
+      name="Experiances"
+      className="w-full min-h-screen bg-gradient-to-b from-black to-gray-900 text-white py-16"
+    >
+      <div className="max-w-screen-xl mx-auto px-4">
+        {/* Heading */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold">
+            My <span className="text-purple-400">Skills</span>
+          </h1>
+          <p className="mt-4 text-gray-400">
+            As a fresher, I have hands-on practice in the following
+            technologies.
+          </p>
+          <div className="w-24 h-1 bg-purple-500 mx-auto mt-3 rounded-full"></div>
+        </div>
+
+        {/* Skill Cards */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+          {skills.map(({ id, logo, name }) => (
             <div
-              className="flex flex-col items-center justify-center border-[2px] rounded-full md:h-[200px] md:w-[200px] p-1 cursor-pointer hover:scale-110 duration-300"
               key={id}
+              className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg p-6 text-center transform hover:-translate-y-3 hover:shadow-purple-500/40 transition duration-500"
             >
-              <img
-                src={logo}
-                className="w-[150px]   rounded-full "
-                alt=""
-              />
-              <div>
-                <div className="">{name}</div>
-               
-              </div>
-             
+              <img src={logo} alt={name} className="w-20 h-20 mx-auto mb-4" />
+              <h2 className="text-xl font-semibold">{name}</h2>
             </div>
           ))}
-
         </div>
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
 export default Experiance;

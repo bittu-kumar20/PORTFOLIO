@@ -1,84 +1,57 @@
-import React from 'react'
-import java from "../../public/java.png"
-import python from "../../public/python.webp"
-import mongoDB from "../../public/mongodb.jpg"
-import nodejs from "../../public/node.png"
-import express from "../../public/express.png"
-import reactjs from "../../public/reactjs.png"
-
+import cpp from "../assets/cpp.png";
+import c from "../assets/clang.png";
+import mongoDB from "../assets/mongodb.jpg";
+import nodejs from "../assets/node.png";
+import express from "../assets/express.png";
+import reactjs from "../assets/reactjs.png";
 
 function PortFolio() {
+  const cardItem = [
+    { id: 1, logo: mongoDB, name: "MongoDB" },
+    { id: 2, logo: express, name: "ExpressJS" },
+    { id: 3, logo: reactjs, name: "ReactJS" },
+    { id: 4, logo: nodejs, name: "NodeJS" },
+    { id: 5, logo: c, name: "C" },
+    { id: 6, logo: cpp, name: "C++" },
+  ];
 
-    const cardItem = [
-        {
-          id: 1,
-          logo: mongoDB,
-          name: "MongoDB",
-        },
-        {
-          id: 2,
-          logo: express,
-          name: "Express",
-        },
-        {
-          id: 3,
-          logo: reactjs,
-          name: "ReactJS",
-        },
-        {
-          id: 4,
-          logo: nodejs,
-          name: "NodeJS",
-        },
-        {
-          id: 5,
-          logo: python,
-          name: "Python",
-        },
-        {
-          id: 6,
-          logo: java,
-          name: "Java",
-        },
-      ];
   return (
-    <div name="Portfolio" className='max-w-screen-2xl container mx-auto px-4 md:mx-20 mt-10'>
-      
-    <div className=''>
-        <h1 className='text-3xl font-bold mb-5'>PortFolio</h1>
-        <span className='underline font-semibold'>New Features</span>
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-3 my-5'>
-        {cardItem.map(({ id, logo, name }) => (
+    <div
+      name="Portfolio"
+      className="w-full min-h-screen bg-gradient-to-b from-purple-900 via-black to-gray-900 text-white py-16"
+    >
+      <div className="max-w-screen-xl mx-auto px-4">
+        {/* Heading */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold">
+            My <span className="text-purple-400">Portfolio</span>
+          </h1>
+          <p className="mt-4 text-gray-400">
+            Technologies & Projects I have worked with
+          </p>
+          <div className="w-24 h-1 bg-purple-500 mx-auto mt-3 rounded-full"></div>
+        </div>
+
+        {/* Cards */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+          {cardItem.map(({ id, logo, name }) => (
             <div
-              className="md:w-[300px] md:h-[300px] border-[2px] rounded-lg shadow-lg p-1 cursor-pointer hover:scale-110 duration-300"
               key={id}
+              className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-xl p-6 text-center transform hover:-translate-y-3 hover:shadow-purple-500/50 transition duration-500"
             >
               <img
                 src={logo}
-                className="w-[120px] h-[120px] p-1 rounded-full border-[2px]"
-                alt=""
+                alt={name}
+                className="w-24 h-24 mx-auto rounded-full border-4 border-purple-500 p-2 bg-white"
               />
-              <div>
-                <div className="px-2 font-bold text-xl mb-2">{name}</div>
-                <p className="px-2 text-gray-700">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </p>
-              </div>
-              <div className=" px-6 py-4 space-x-3 justify-around">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded">
-                  Video
-                </button>
-                <button className="bg-green-500 hover:bg-green-700 text-white font-bold px-4 py-2 rounded">
-                  Source code
-                </button>
-              </div>
+
+              <h2 className="text-2xl font-semibold mt-6">{name}</h2>
             </div>
           ))}
-
         </div>
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
 export default PortFolio;
